@@ -23,7 +23,7 @@
 #define _SERVO_SPEED       1000  // servo speed 
 
 // Target Distance
-#define _DIST_TARGET    175 // Center of the rail (unit:mm)
+#define _DIST_TARGET    155 // Center of the rail (unit:mm)
 
 // PID parameters
 #define _KP 2.5  // proportional gain
