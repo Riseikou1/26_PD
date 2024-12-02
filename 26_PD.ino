@@ -6,28 +6,28 @@
 #define PIN_IR    A0
 
 // Event interval parameters
-#define _INTERVAL_DIST    50 // distance sensor interval (unit: ms)
-#define _INTERVAL_SERVO   20 // servo interval (unit: ms)
-#define _INTERVAL_SERIAL  80  // serial interval (unit: ms)
+#define _INTERVAL_DIST   200 // distance sensor interval (unit: ms)
+#define _INTERVAL_SERVO   70 // servo interval (unit: ms)
+#define _INTERVAL_SERIAL  80  // serial interval (unit: ms)   // eniig bitii change hiigeerei genee.
 
 // EMA filter configuration for the IR distance sensor
 #define _EMA_ALPHA 0.8    // EMA weight of new sample (range: 0 to 1)
                           // Setting EMA to 1 effectively disables EMA filter
 
 // Servo adjustment - Set _DUTY_MAX, _NEU, _MIN with your own numbers
-#define _DUTY_MAX 1400 // 2000
-#define _DUTY_NEU 890 // 1500
-#define _DUTY_MIN 640 // 1000
+#define _DUTY_MAX 1420 // 1400 bhad ehniihees davaad baina.
+#define _DUTY_NEU 880 // 870
+#define _DUTY_MIN 640 // 640
 
-#define _SERVO_ANGLE_DIFF  40  // Replace with |D - E| degree
-#define _SERVO_SPEED       1000  // servo speed 
+#define _SERVO_ANGLE_DIFF  25  // Replace with |D - E| degree
+#define _SERVO_SPEED       2000  // servo speed 
 
 // Target Distance
-#define _DIST_TARGET    155 // Center of the rail (unit:mm)
+#define _DIST_TARGET    155 // Center of the rail (unit:mm)   // ene bol bumbugnii ehlel 155 deer baihad,bumbugnii tuv ni 175 deer shaana.
 
 // PID parameters
-#define _KP 2.5  // proportional gain
-#define _KD 9.0  // derivative gain
+#define _KP 2.1  // proportional gain  // 1.9 baihdaa ehniih davav.
+#define _KD 7.3  // derivative gain
 //#define _KI 0.0   // integral gain
 
 // global variables
@@ -143,7 +143,7 @@ void loop() {
       Serial.print(",duty_target:"); Serial.print(duty_target);
       Serial.print(",duty_current:"); Serial.print(duty_current);
     }
-    Serial.print("MIN:0,MAX:300,TARGET:175,TG_LO:148,TG_HI:202,DIST:"); 
+    Serial.print("MIN:0,MAX:300,TARGET:175,TG_LO:132,TG_HI:184,DIST:"); 
     Serial.println(dist_ema);
   }
 }
@@ -152,8 +152,8 @@ float volt_to_distance(int a_value)
 {
   // Replace next line into your own equation
   // return (6762.0 / (a_value - 9) - 4.0) * 10.0; 
-  return 1722-9.81*a_value+0.0193*a_value*a_value-1.28E-05*a_value*a_value*a_value;
-}
+  return 1718-9.81*a_value+0.0193*a_value*a_value-1.28E-05*a_value*a_value*a_value;   // 1688 baihad   180 ni 200 deer shaagaad baina.
+} 
 
 int compare(const void *a, const void *b) {
   return (*(unsigned int *)a - *(unsigned int *)b);
